@@ -47,7 +47,7 @@ public class Consumer implements Runnable {
             interval=random.nextInt(high-low)+low;
             //System.out.println("Time Delay for next print window:-"+interval);
             Thread.sleep(interval);
-        }catch(InterruptedException e){
+        } catch(InterruptedException e) {
             System.out.println("Consumer -Sleep Window Interrupted ");
         }
     }

@@ -27,7 +27,7 @@ public class Producer implements Runnable{
                     }
                 }
             }
-        }catch(IllegalMonitorStateException e){
+        } catch (IllegalMonitorStateException e){
             System.out.println("Producer IllegalMonitorStateException occurred");
         }catch(InterruptedException e){
             System.out.println("Producer InterruptedException occurred");
