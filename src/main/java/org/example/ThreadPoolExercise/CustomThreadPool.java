@@ -18,23 +18,25 @@ class CustomThreadPool implements ICustomExecutorService {
         this.capacity = capacity;
         currentCapacity = 0;
 
-        // Creating a linked blocking queue which will block
-        // if its empty and it will perform thread safe operation.
+        /*Creating a linked blocking queue which will block
+        if its empty and it will perform thread safe operation.*/
         linkedTaskBlockingQueue = new LinkedBlockingQueue<Runnable>();
         e = new Execution();
     }
 
-    // Method 2
-    // @Override
+    @Override
     public void execute(Runnable r)
     {
 
-        // Declaring and adding tasks to
-        // blocking queue using add() method
+        /*Declaring and adding tasks to
+         blocking queue using add() method*/
         linkedTaskBlockingQueue.add(r);
 
-        // executeMyMethod() method of Execution class
-        // which will execute the tasks
         e.executeMyMethod();
+    }
+
+    @Override
+    public void shutDown() {
+        e.stop();
     }
 }

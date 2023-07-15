@@ -19,17 +19,13 @@ public class ThredPoolMain {
         /*Getting the object of MyExcutors by using
          the factory method myNewFixedThreadPool */
 
-        // Passing number of threads as 3
         ICustomExecutorService service
-                = MyExecutors.myNewFixedThreadPool(1);
+                = MyExecutors.myNewFixedThreadPool(3);
 
         for (String msg:taskMsgList) {
             // Creating tasks and passing them to execute
             service.execute(new Mytask(msg));
         }
-
-        Runnable runnableTask = null;
-
 
     }
 
