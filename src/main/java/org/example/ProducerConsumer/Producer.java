@@ -14,7 +14,7 @@ public class Producer implements Runnable{
     public void run() {
         System.out.println("Inside Producer" );
         Random r = new Random();
-        int low = 500;
+        int low = 2000;
         int high = 5000;
         int interval=0;
         try {

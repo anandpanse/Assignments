@@ -1,10 +1,5 @@
 package org.example.ThreadPoolExercise;
 
-import com.sun.jdi.PathSearchingVirtualMachine;
-import org.example.ProducerConsumer.Consumer;
-import org.example.ProducerConsumer.Container;
-import org.example.ProducerConsumer.Producer;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +13,22 @@ public class ThredPoolMain {
         taskMsgList.add("Define a variable");
         taskMsgList.add("Write a method");
         taskMsgList.add("Spawn a Thread");
+        taskMsgList.add("Read at least 20 pages per day");
+        taskMsgList.add("Buy Grocery ");
 
-        TaskThreadPool taskThreadPool=new TaskThreadPool(2,taskMsgList);
-        taskThreadPool.execute();
+        /*Getting the object of MyExcutors by using
+         the factory method myNewFixedThreadPool */
+
+        // Passing number of threads as 3
+        ICustomExecutorService service
+                = MyExecutors.myNewFixedThreadPool(1);
+
+        for (String msg:taskMsgList) {
+            // Creating tasks and passing them to execute
+            service.execute(new Mytask(msg));
+        }
+
+        Runnable runnableTask = null;
 
 
     }
